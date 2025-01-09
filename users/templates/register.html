@@ -74,71 +74,73 @@
 
                     {% csrf_token %}
 
-                    <!-- Campo 1 -->
+                    
                     <div class="col-md-6">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
                     </div>
-                    <!-- Campo 2 -->
+                    
+                    
                     <div class="col-md-6">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
                     </div>
-                    <!-- Campo 3 -->
+                  
                     <div class="col-md-6">
-                    <label for="telefone" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone">
+                        <label for="apelido" class="form-label">Apelido</label>
+                        <input type="text" class="form-control" id="apelido" placeholder="Digite seu apelido">
                     </div>
-                    <!-- Campo 4 -->
+
                     <div class="col-md-6">
-                    <label for="cpf" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF">
+                        <label for="tipoUsuario" class="form-label">Gênero</label>
+                        <select class="form-select" id="tipoUsuario">
+                            <option selected>Selecione...</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="outras">outras</option>
+                        </select>
                     </div>
-                    <!-- Campo 5 -->
+
                     <div class="col-md-6">
-                    <label for="dataInicio" class="form-label">Data de Início</label>
-                    <input type="date" class="form-control" id="dataInicio">
+                        <label for="dataInicio" class="form-label">Data de Nascimento</label>
+                        <input type="date" class="form-control" id="dataInicio">
                     </div>
-                    <!-- Campo 6 -->
+                    
                     <div class="col-md-6">
-                    <label for="dataFim" class="form-label">Data de Fim</label>
-                    <input type="date" class="form-control" id="dataFim">
+                        <label for="nacionalidade" class="form-label">Nacionalidade</label>
+                        <input type="text" class="form-control" id="nacionalidade" placeholder="Digite sua nacionalidade">
                     </div>
-                    <!-- Campo 7 -->
+
                     <div class="col-md-6">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+                        <label for="passaporte" class="form-label">Número Passaporte</label>
+                        <input type="text" class="form-control" id="passaporte" placeholder="Confirme nº do Passaporte">
                     </div>
-                    <!-- Campo 8 -->
+
                     <div class="col-md-6">
-                    <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
-                    <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha">
+                        <label for="dataFim" class="form-label">Data de Expiração do Passaporte</label>
+                        <input type="date" class="form-control" id="dataFim">
                     </div>
-                    <!-- Campo 9 -->
+
                     <div class="col-md-6">
-                    <label for="cidade" class="form-label">Cidade</label>
-                    <input type="text" class="form-control" id="cidade" placeholder="Digite sua cidade">
+                        <label for="ddd" class="form-label">DDD do país</label>
+                        <input type="text" class="form-control" id="ddd" placeholder="Digite o ddd do país">
                     </div>
-                    <!-- Campo 10 -->
+
                     <div class="col-md-6">
-                    <label for="estado" class="form-label">Estado</label>
-                    <input type="text" class="form-control" id="estado" placeholder="Digite seu estado">
+                        <label for="contato" class="form-label">Contato</label>
+                        <input type="text" class="form-control" id="contato" placeholder="Digite seu contato">
                     </div>
-                    <!-- Campo 11 -->
+
                     <div class="col-md-6">
-                    <label for="tipoUsuario" class="form-label">Tipo de Usuário</label>
-                    <select class="form-select" id="tipoUsuario">
-                        <option selected>Selecione...</option>
-                        <option value="1">Cliente</option>
-                        <option value="2">Administrador</option>
-                    </select>
+                        <label for="credencial" class="form-label">Credencial VFS</label>
+                        <input type="text" class="form-control" id="credencial" placeholder="Digite sua credencial VFS">
                     </div>
-                    <!-- Campo 12 -->
+
                     <div class="col-md-6">
-                    <label for="observacoes" class="form-label">Observações</label>
-                    <textarea class="form-control" id="observacoes" rows="3" placeholder="Digite observações..."></textarea>
+                        <label for="senha" class="form-label">Senha VFS</label>
+                        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
                     </div>
-                    <!-- Botão de Envio -->
+                  
                     <div class="col-12 d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                       </div>
