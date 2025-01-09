@@ -1,36 +1,164 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+    
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Register</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Cadastro</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <style>
+
+            .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background: #f8f9fa;
+            overflow-y: auto;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-250px);
+            }
+            .sidebar.active {
+            transform: translateX(0);
+            }
+            .content {
+            margin-left: 250px;
+            transition: margin-left 0.3s ease-in-out;
+            }
+            .content.collapsed {
+            margin-left: 0;
+            }
+
+        </style>
+
     </head>
+
     <body>
-        
-        <h2>cadastrar usuario</h2>
-        
-        <br />
-        <br />
-        
-        <form action="{% url 'register' %}" method="POST" >
 
-            <input type='text' name='username' />
-            <br />
-            <br />
+        <!-- Menu Superior -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+            <div class="container-fluid">
+                <button class="btn btn-outline-primary" id="toggleSidebar">☰</button>
+                <div class="ms-auto d-flex align-items-center">
+                    <span class="me-3"><strong>Administrador</strong></span>
+                    <button class="btn btn-danger btn-sm"><a href="{% url 'authentication' %}" style="text-decoration: none; color: #ffffff"> Sair </a></button>
+                </div>
+            </div>
+        </nav>
 
-            <input type='password' name='password'/>
-            <br />
-            <br />
+        <!-- Menu Lateral -->
+        <div class="sidebar" id="sidebar">
+            <div class="list-group">
+                <a href="{% url 'home' %}" class="list-group-item list-group-item-action">Home</a>
+                <a href="{% url 'register' %}" class="list-group-item list-group-item-action">Cadastrar Cliente</a>
+                <a href="{% url 'management' %}" class="list-group-item list-group-item-action">Cadastrar Administrador</a>
+            </div>
+        </div>
 
-            <input type='submit' value='acessar' />
-        </form>
+        <!-- Conteúdo Principal -->
+        <div class="content collapsed" id="mainContent">
 
-        <br />
+            <div class="container py-5">
 
-        
-        <script src="" async defer></script>
+                <h2 class="text-center mb-4">Cadastro de Cliente</h2>
+
+                <form class="row g-3" action="{% url 'register' %}" method="POST">
+
+                    {% csrf_token %}
+
+                    <!-- Campo 1 -->
+                    <div class="col-md-6">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                    </div>
+                    <!-- Campo 2 -->
+                    <div class="col-md-6">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <!-- Campo 3 -->
+                    <div class="col-md-6">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone">
+                    </div>
+                    <!-- Campo 4 -->
+                    <div class="col-md-6">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF">
+                    </div>
+                    <!-- Campo 5 -->
+                    <div class="col-md-6">
+                    <label for="dataInicio" class="form-label">Data de Início</label>
+                    <input type="date" class="form-control" id="dataInicio">
+                    </div>
+                    <!-- Campo 6 -->
+                    <div class="col-md-6">
+                    <label for="dataFim" class="form-label">Data de Fim</label>
+                    <input type="date" class="form-control" id="dataFim">
+                    </div>
+                    <!-- Campo 7 -->
+                    <div class="col-md-6">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+                    </div>
+                    <!-- Campo 8 -->
+                    <div class="col-md-6">
+                    <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha">
+                    </div>
+                    <!-- Campo 9 -->
+                    <div class="col-md-6">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" placeholder="Digite sua cidade">
+                    </div>
+                    <!-- Campo 10 -->
+                    <div class="col-md-6">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado" placeholder="Digite seu estado">
+                    </div>
+                    <!-- Campo 11 -->
+                    <div class="col-md-6">
+                    <label for="tipoUsuario" class="form-label">Tipo de Usuário</label>
+                    <select class="form-select" id="tipoUsuario">
+                        <option selected>Selecione...</option>
+                        <option value="1">Cliente</option>
+                        <option value="2">Administrador</option>
+                    </select>
+                    </div>
+                    <!-- Campo 12 -->
+                    <div class="col-md-6">
+                    <label for="observacoes" class="form-label">Observações</label>
+                    <textarea class="form-control" id="observacoes" rows="3" placeholder="Digite observações..."></textarea>
+                    </div>
+                    <!-- Botão de Envio -->
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Controle do menu lateral
+            const toggleSidebar = document.getElementById('toggleSidebar');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+
+            toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('collapsed');
+            });
+        </script>
     </body>
+
 </html>

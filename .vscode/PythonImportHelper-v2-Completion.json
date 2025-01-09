@@ -192,7 +192,7 @@
         "kind": 2,
         "importPath": "authentication.views",
         "description": "authentication.views",
-        "peekOfCode": "def authentication(request):\n    if request.method == 'GET':\n        return render(request, 'authentication.html')\n    else:\n        username = request.POST.get('username')\n        return HttpResponse(username)",
+        "peekOfCode": "def authentication(request):\n    if request.method == 'GET':\n        return render(request, 'authentication.html')\n    else:\n        username = request.POST.get('username')\n        if username == '':\n            return HttpResponse('esta vazio')\n        return render(request, 'home.html')",
         "detail": "authentication.views",
         "documentation": {}
     },
@@ -210,7 +210,7 @@
         "kind": 5,
         "importPath": "users.urls",
         "description": "users.urls",
-        "peekOfCode": "urlpatterns = [\n    path('register', views.register, name='register')\n]",
+        "peekOfCode": "urlpatterns = [\n    path('register', views.register, name='register'),\n    path('home', views.home, name='home'),\n    path('management', views.management, name='management')\n]",
         "detail": "users.urls",
         "documentation": {}
     },
@@ -219,7 +219,25 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def register(request):\n    return render(request, 'register.html')",
+        "peekOfCode": "def register(request):\n    return render(request, 'register.html')\ndef home(request):\n    return render(request, 'home.html')\ndef management(request):\n    return render(request, 'management.html')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def home(request):\n    return render(request, 'home.html')\ndef management(request):\n    return render(request, 'management.html')",
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
+        "label": "management",
+        "kind": 2,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "def management(request):\n    return render(request, 'management.html')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -318,7 +336,7 @@
         "kind": 5,
         "importPath": "visaFront.settings",
         "description": "visaFront.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql', \n        'NAME': 'visa',              \n        'USER': 'root',                 \n        'PASSWORD': '',                \n        'HOST': 'localhost',           \n        'PORT': '3306',\n    }\n}",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql', \n        'NAME': 'visa',              \n        'USER': 'root',                 \n        'PASSWORD': '123456',                \n        'HOST': 'localhost',           \n        'PORT': '3306',\n    }\n}",
         "detail": "visaFront.settings",
         "documentation": {}
     },

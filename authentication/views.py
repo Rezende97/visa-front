@@ -9,5 +9,8 @@ def authentication(request):
 
         username = request.POST.get('username')
         
-        return HttpResponse(username)
+        if username == '':
+            return HttpResponse('esta vazio')
+
+        return render(request, 'home.html')
         
