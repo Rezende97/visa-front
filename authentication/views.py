@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Management
+from users.models import Customers
 
 def authentication(request):
     if request.method == 'GET':
@@ -17,7 +18,10 @@ def authentication(request):
         
         if Management.objects.filter(name=username, password=password).exists():
             request.session['is_authenticated'] = True
-            return render(request, 'home.html')
+
+            customer = Customers.objects.all()
+        
+            return render(request, 'home.html', {'customer': customer})
         else:
             messages.error(request, f"Usuário inválido.")
             return redirect('authentication')

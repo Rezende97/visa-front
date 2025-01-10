@@ -79,12 +79,12 @@
 
                     <tbody>
                         
-                        {% for customers_management in customer_management %}
+                        {% for customer in customers %}
                             <tr>
-                                <td>{{ customer_management.name }}</td>
-                                <td>{{ customer_management.password }}</td>
+                                <td>{{ customers.name }}</td>
+                                <td>{{ customers.password }}</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><a href="#" target="_blank" data-idCustomer={{ customer_management.id }} style="text-decoration: none; color: #000000"> Realizar Agendamento </a></button>
+                                    <button class="btn btn-warning btn-sm"><a href="#" target="_blank" data-idCustomer={{ customers.id }} style="text-decoration: none; color: #000000"> Realizar Agendamento </a></button>
                                 </td>
                             </tr>
                         {% endfor %}

@@ -168,6 +168,14 @@
         "documentation": {}
     },
     {
+        "label": "Customers",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
+        "documentation": {}
+    },
+    {
         "label": "Management",
         "importPath": "authentication.models",
         "description": "authentication.models",
@@ -285,7 +293,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def register(request):\n    return render(request, 'register.html')\ndef home(request):\n    customers_management = Customers.objects.all()\n    return render(request, 'home.html', {'customers_management': customers_management})\ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')\n    password = request.POST.get('password')",
+        "peekOfCode": "def register(request):\n    return render(request, 'register.html')\ndef home(request):\n    if request.method == 'GET':\n        customer = Customers.objects.all()\n        return render(request, 'home.html', {'customer': customer})\ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -294,7 +302,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def home(request):\n    customers_management = Customers.objects.all()\n    return render(request, 'home.html', {'customers_management': customers_management})\ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')\n    password = request.POST.get('password')\n    if not username or not password:\n        messages.error(request, \"Todos os campos são obrigatórios.\")",
+        "peekOfCode": "def home(request):\n    if request.method == 'GET':\n        customer = Customers.objects.all()\n        return render(request, 'home.html', {'customer': customer})\ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')\n    password = request.POST.get('password')\n    if not username or not password:",
         "detail": "users.views",
         "documentation": {}
     },

@@ -7,9 +7,11 @@ def register(request):
     return render(request, 'register.html')
 
 def home(request):
-    customers_management = Customers.objects.all()
+    
+    if request.method == 'GET':
+        customer = Customers.objects.all()
 
-    return render(request, 'home.html', {'customers_management': customers_management})
+        return render(request, 'home.html', {'customer': customer})
 
 def management(request):
     if request.method == 'GET':
