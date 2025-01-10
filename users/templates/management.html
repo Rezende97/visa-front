@@ -66,16 +66,27 @@
         <div class="content collapsed" id="mainContent">
           <div class="container py-5">
             <h2 class="text-center mb-4">Cadastrar Administrador (a)</h2>
-            <form class="row g-3">
-              <!-- Campo 1 -->
+
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              {% if messages %}
+                {% for message in messages %}
+                  <p>{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <form class="row g-3" action="{% url 'management' %}" method="POST"> 
+
+              {% csrf_token %}
+              
               <div class="col-md-6">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome" required>
               </div>
               <!-- Campo 2 -->
               <div class="col-md-6">
                 <label for="senha" class="form-label">senha</label>
-                <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
               </div>
               <!-- Botão de Envio (Alinhado à direita) -->
               <div class="col-12 d-flex justify-content-end">

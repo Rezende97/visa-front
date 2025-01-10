@@ -72,24 +72,23 @@
                         <tr>
                             <th>Nome</th>
                             <th>Passaporte</th>
-                            <th>Data Agendamento</th>
                             <th>Realizar Agendamento</th>
                         </tr>
 
                     </thead>
 
                     <tbody>
-
-                        <tr>
-
-                            <td>VALÊNCIA MARGARIDA</td>
-                            <td>0561859</td>
-                            <td>-</td>
-                            <td>
-                                <button class="btn btn-warning btn-sm"><a href="#" target="_blank" style="text-decoration: none; color: #000000"> Realizar Agendamento </a></button>
-                            </td>
-
-                        </tr>
+                        
+                        {% for customers_management in customer_management %}
+                            <tr>
+                                <td>{{ customer_management.name }}</td>
+                                <td>{{ customer_management.password }}</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm"><a href="#" target="_blank" data-idCustomer={{ customer_management.id }} style="text-decoration: none; color: #000000"> Realizar Agendamento </a></button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                
 
                     </tbody>
 
