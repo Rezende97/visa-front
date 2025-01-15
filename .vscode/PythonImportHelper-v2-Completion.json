@@ -293,7 +293,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def register(request):\n    return render(request, 'register.html')\ndef home(request):\n    if request.method == 'GET':\n        customers = Customers.objects.all() \n        return render(request, 'home.html', {'customers': customers})  \ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')",
+        "peekOfCode": "def register(request):\n    return render(request, 'register.html')\ndef home(request):\n    if request.method == 'GET':\n        customers = Customers.objects.all() \n        return render(request, 'home.html', {'customers': customers}) \ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')",
         "detail": "users.views",
         "documentation": {}
     },
@@ -302,7 +302,7 @@
         "kind": 2,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "def home(request):\n    if request.method == 'GET':\n        customers = Customers.objects.all() \n        return render(request, 'home.html', {'customers': customers})  \ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')\n    password = request.POST.get('password')\n    if not username or not password:",
+        "peekOfCode": "def home(request):\n    if request.method == 'GET':\n        customers = Customers.objects.all() \n        return render(request, 'home.html', {'customers': customers}) \ndef management(request):\n    if request.method == 'GET':\n        return render(request, 'management.html')\n    username = request.POST.get('nome')\n    password = request.POST.get('password')\n    if not username or not password:",
         "detail": "users.views",
         "documentation": {}
     },

@@ -9,7 +9,7 @@ def register(request):
 def home(request):
     if request.method == 'GET':
         customers = Customers.objects.all() 
-        return render(request, 'home.html', {'customers': customers})  
+        return render(request, 'home.html', {'customers': customers}) 
 
 
 def management(request):
