@@ -81,14 +81,17 @@
                         
                         {% for customer in customers %}
                             <tr>
-                                <td>{{ customers.name }}</td>
-                                <td>{{ customers.password }}</td>
+                                <td>{{ customer.name }}</td> <!-- Use 'customer', não 'customers' -->
+                                <td>{{ customer.passaporte }}</td> <!-- Corrigido de 'password' para 'passaporte' -->
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><a href="#" target="_blank" data-idCustomer={{ customers.id }} style="text-decoration: none; color: #000000"> Realizar Agendamento </a></button>
+                                    <button class="btn btn-warning btn-sm">
+                                        <a href="#" target="_blank" data-idCustomer="{{ customer.id }}" style="text-decoration: none; color: #000000"> 
+                                            Realizar Agendamento 
+                                        </a>
+                                    </button>
                                 </td>
                             </tr>
                         {% endfor %}
-                
 
                     </tbody>
 
